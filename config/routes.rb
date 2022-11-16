@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  root "splash/index"
+  # root "splash/index"
 
-  resources :categories do
-    resources :expenses, only: [:new, :create, :edit, :update]
-  end
+  root "splash#index"
 
-  resources :users, only: [:edit, :update]
+  resources :splash
+  resources :users
+  resources :categories
+  resources :expenses
+  
 
   # get 'users/index'
   # get 'users/show'
