@@ -1,0 +1,16 @@
+<div class="form">
+  <%= form_with(model: category) do |f| %>
+      <div class="field">
+      <%= f.label :name, class: 'hidden' %>
+      <%= f.text_field :name, placeholder: "Name", class: "field__input" %>
+      </div>
+     <div>
+       <%= f.label :icon, class: 'hidden' %>
+      <%= f.text_field :icon, placeholder: "", class: "field__input" %>
+      </div>
+   
+     
+  <div>
+    <%= f.submit "Save", class:'sign-up-2' %>
+  </div>
+<% end %>
