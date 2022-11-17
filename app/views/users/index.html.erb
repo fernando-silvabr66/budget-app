@@ -1,2 +1,10 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class='main-container'>
+
+  <% if current_page?(root_path) && current_user == nil %>
+    <h4> class="welcome-text">Welcome to your personal budget app!</h4>
+  <% end %>
+  <div class='welcome-icon'>
+    <%= image_tag "expensetracker.png", class:"app-icon" %>
+  </div>
+  <% end %>
+</div>
