@@ -1,1 +1,1 @@
-json.partial! 'groups/category', category: @category
+json.partial! 'categoriess/category', category: @category
