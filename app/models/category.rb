@@ -1,15 +1,7 @@
 class Category < ApplicationRecord
-  belongs_to :user
-  has_many :expenses, dependent: :destroy
+  has_many :categorygroups, dependent: :destroy
+  has_many :groups, through: :categorygroups
 
+  validates :amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :name, presence: true
-  validates :icon, presence: true
-  validates :icon,
-            format: {
-              with: URI::DEFAULT_PARSER.make_regexp(%w[http https]),
-              message: 'image url is not a valid URL'
-            }
-  def total_amount
-    expenses.sum(:amount)
-  end
 end
