@@ -1,16 +1,16 @@
 <div class="categories-container">
-<div id="categories">
-  <% if @categories.empty? %>
+  <div id="categories">
+    <% if @categories.empty? %>
       <p class="category__empty">There are no categories yet.</p>
-       <% else %>
-  <% @categories.each do |category| %>
-    <%= link_to category, class:'category-links' do %>
-      <%= render category %>
-       <% end %>
+    <% else %>
+      <% @categories.each do |category| %>
+        <%= link_to category, class:'category-links' do %>
+          <%= render category %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-<div class="add-category">
-  <%= link_to "Add New Category", new_category_path, class:'sign-up-2' %>
-</div>
+  </div>
+  <div class="add-category">
+    <%= link_to "Add New Category", new_category_path, class:'sign-up-2' %>
+  </div>
 </div>
