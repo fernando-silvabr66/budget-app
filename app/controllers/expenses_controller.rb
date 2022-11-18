@@ -18,13 +18,13 @@ class ExpensesController < ApplicationController
     @expense.category_id = @category.id
     @expense.user_id = current_user.id
 
-    respond_to do |format|
+    respond_to do |f|
       if @expense.save
-        format.html { redirect_to @category, notice: 'Expense was successfully created.' }
-        format.json { render :show, status: :created, location: @expense }
+        f.html { redirect_to @category, notice: 'Expense was successfully created.' }
+        f.json { render :show, status: :created, location: @expense }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+        f.html { render :new, status: :unprocessable_entity }
+        f.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,13 +33,13 @@ class ExpensesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
+    respond_to do |f|
       if @expense.update(expense_params)
-        format.html { redirect_to @category, notice: 'Expense was successfully updated.' }
-        format.json { render :show, status: :ok, location: @expense }
+        f.html { redirect_to @category, notice: 'Expense was successfully updated.' }
+        f.json { render :show, status: :ok, location: @expense }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+        f.html { render :edit, status: :unprocessable_entity }
+        f.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,9 +50,9 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
 
-    respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
-      format.json { head :no_content }
+    respond_to do |f|
+      f.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      f.json { head :no_content }
     end
   end
 

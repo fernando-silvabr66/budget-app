@@ -17,13 +17,13 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.user_id = current_user.id
 
-    respond_to do |format|
+    respond_to do |f|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @category }
+        f.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
+        f.json { render :show, status: :created, location: @category }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        f.html { render :new, status: :unprocessable_entity }
+        f.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -32,13 +32,13 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
+    respond_to do |f|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
+        f.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
+        f.json { render :show, status: :ok, location: @category }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        f.html { render :edit, status: :unprocessable_entity }
+        f.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,9 +49,9 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
 
-    respond_to do |format|
-      format.html { redirect_to categorys_url, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
+    respond_to do |f|
+      f.html { redirect_to categorys_url, notice: 'Category was successfully destroyed.' }
+      f.json { head :no_content }
   end
 
   private
