@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  def index; end
 
-  # GET /users or /users.json
-  def index
-    @user = current_user
+  def show
+    @user = User.find(params[:id])
+    @groups = Group.where(user_id: params[:id])
   end
 end
