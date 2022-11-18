@@ -15,19 +15,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_224612) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "icon"
+    t.text "name"
+    t.text "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
-  end
-
-  create_table "categories_expenses", id: false, force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "expense_id"
-    t.index ["category_id"], name: "index_categories_expenses_on_category_id"
-    t.index ["expense_id"], name: "index_categories_expenses_on_expense_id"
   end
 
   create_table "expenses", force: :cascade do |t|
