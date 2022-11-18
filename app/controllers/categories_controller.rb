@@ -23,11 +23,11 @@ class CategoriesController < ApplicationController
     @category.user_id = current_user.id
     respond_to do |f|
       if @category.save
-        f.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
-        f.json { render :show, status: :created, location: @category }
+        form.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
+        form.json { render :show, status: :created, location: @category }
       else
-        f.html { render :new, status: :unprocessable_entity }
-        f.json { render json: @category.errors, status: :unprocessable_entity }
+        form.html { render :new, status: :unprocessable_entity }
+        form.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -36,11 +36,11 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |f|
       if @category.update(category_params)
-        f.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
-        f.json { render :show, status: :ok, location: @category }
+        form.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
+        form.json { render :show, status: :ok, location: @category }
       else
-        f.html { render :edit, status: :unprocessable_entity }
-        f.json { render json: @category.errors, status: :unprocessable_entity }
+        form.html { render :edit, status: :unprocessable_entity }
+        form.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,8 +50,8 @@ class CategoriesController < ApplicationController
     @category.destroy
 
     respond_to do |f|
-      f.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
-      f.json { head :no_content }
+      form.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+      form.json { head :no_content }
     end
   end
 

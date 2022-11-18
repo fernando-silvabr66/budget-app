@@ -18,13 +18,13 @@ class ExpensesController < ApplicationController
     @expense.category_id = @category.id
     @expense.user_id = current_user.id
 
-    respond_to do |f|
+    respond_to do |form|
       if @expense.save
-        f.html { redirect_to @category, notice: 'Expense was successfully created.' }
-        f.json { render :show, status: :created, location: @expense }
+        form.html { redirect_to @category, notice: 'Expense was successfully created.' }
+        form.json { render :show, status: :created, location: @expense }
       else
-        f.html { render :new, status: :unprocessable_entity }
-        f.json { render json: @expense.errors, status: :unprocessable_entity }
+        form.html { render :new, status: :unprocessable_entity }
+        form.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,13 +33,13 @@ class ExpensesController < ApplicationController
   end
 
   def update
-    respond_to do |f|
+    respond_to do |form|
       if @expense.update(expense_params)
-        f.html { redirect_to @category, notice: 'Expense was successfully updated.' }
-        f.json { render :show, status: :ok, location: @expense }
+        form.html { redirect_to @category, notice: 'Expense was successfully updated.' }
+        form.json { render :show, status: :ok, location: @expense }
       else
-        f.html { render :edit, status: :unprocessable_entity }
-        f.json { render json: @expense.errors, status: :unprocessable_entity }
+        form.html { render :edit, status: :unprocessable_entity }
+        form.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,9 +50,9 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
 
-    respond_to do |f|
-      f.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
-      f.json { head :no_content }
+    respond_to do |form|
+      form.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      form.json { head :no_content }
     end
   end
 
