@@ -6,14 +6,6 @@ class CategoriesController < ApplicationController
     @category = Category.all
   end
 
-  # GET /categories/1 or /categories/1.json
-  #def show; end
-
-  # GET /categories/new
-  def new
-    @category = Category.new
-  end
-
   # GET /categories/1/edit
   def edit; end
 
@@ -45,5 +37,4 @@ class CategoriesController < ApplicationController
   def allowed_params
     params.require(:category).permit(:name, :amount)
   end
-  
 end

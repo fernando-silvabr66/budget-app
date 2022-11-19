@@ -1,13 +1,12 @@
 class ExpensesController < ApplicationController
   before_action :set_category, only: %i[new create edit update destroy]
   before_action :set_expense, only: %i[show edit update destroy]
-  
+
   def index
     @expenses = Expense.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @expense = Expense.new
@@ -29,8 +28,7 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |form|
@@ -44,8 +42,7 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def delete
-  end
+  def delete; end
 
   def destroy
     @expense.destroy
@@ -71,5 +68,4 @@ class ExpensesController < ApplicationController
   def expense_params
     params.require(:expense).permit(:name, :amount).merge(user_id: current_user.id)
   end
-
 end
