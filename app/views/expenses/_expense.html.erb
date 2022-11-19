@@ -1,0 +1,6 @@
+ <%= link_to edit_category_expense_path(@category, expense), class:"card_link" do %>
+  <div class="expense-card">
+    <p class='color'><%= expense.name %></p>
+    <p class='color'>Cost: $<%= expense.amount %></p>
+  </div>
+<% end %>

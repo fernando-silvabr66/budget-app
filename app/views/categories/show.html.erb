@@ -1,0 +1,19 @@
+<%= render @category %>
+
+<div class="category-show-btns">
+  <div>
+    <%= link_to "Edit Category", edit_category_path(@category), class:'edit' %>
+  </div>
+  <div>
+    <%= button_to "Destroy Category", @category, method: :delete, class:'log-in-2 red' %>
+  </div>
+</div>
+<div>
+  <h2 class='transaction-heading'>Transactions<h2>
+  <div class="card-list">
+    <%= render @category.expenses.order(created_at: :desc) %>
+  </div>
+  <div class="add-category">
+    <%= link_to "New Transaction", new_category_expense_path(@category), class: "sign-up-2" %>
+  </div>
+</div>
