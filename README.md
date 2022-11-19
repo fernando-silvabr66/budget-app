@@ -8,9 +8,11 @@
 
 ## Link to video
 
+https://www.loom.com/share/89b6ec5c232f476d8a15e961107a8277
 
 ## Link to App
 
+https://budget-app-fernando.herokuapp.com/
 
 ## Built With
 
